@@ -1,0 +1,13 @@
+{
+  "service": {
+    "id": "rabbitmq-data",
+    "name": "rabbitmq",
+    "address": "172.18.107.16",
+    "port": 5672,
+    "check": {
+      "tcp": "172.18.107.16:5672",
+      "interval": "10s",
+      "timeout": "3s"
+    }
+  }
+}

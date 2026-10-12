@@ -1,0 +1,15 @@
+{
+    "log_level": "info",
+    "datacenter": "dc",
+    "data_dir": "/var/lib/consul",
+    "disable_update_check": true,
+    "enable_local_script_checks": true,
+    "ports": {
+        "dns": 53,
+        "http": 8500
+    },
+    "addresses": {
+        "dns": "0.0.0.0",
+        "http": "0.0.0.0"
+    }
+}

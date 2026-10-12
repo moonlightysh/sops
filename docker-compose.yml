@@ -1,0 +1,32 @@
+services:
+  bkce-data:
+    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-data:v6
+    container_name: bkce-data
+    hostname: iZbp19vsfom9pxogi15pocZ.node.consul   # rabbitmq longname node identity
+    restart: always
+    networks:
+      sops_bkce:
+        ipv4_address: 172.18.107.16
+
+  bkce-sops:
+    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v7
+    container_name: bkce-sops
+    restart: always
+    depends_on:
+      - bkce-data
+    ports:
+      - "8080:8010"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    dns:
+      - 172.18.107.16
+    networks:
+      sops_bkce:
+        ipv4_address: 172.18.107.21
+
+networks:
+  sops_bkce:
+    name: sops_bkce
+    ipam:
+      config:
+        - subnet: 172.18.107.0/24

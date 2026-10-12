@@ -1,0 +1,10 @@
+*.pyc
+__pycache__/
+*.log
+*.log.*
+.DS_Store
+node_modules/
+*.tar.gz
+mock_iam_data/
+# consul binary extracted from the paas image (see build/data/Dockerfile)
+build/data/consul

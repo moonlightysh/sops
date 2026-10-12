@@ -1,0 +1,13 @@
+{
+  "service": {
+    "id": "mysql-default-data",
+    "name": "mysql-default",
+    "address": "172.18.107.16",
+    "port": 3306,
+    "check": {
+      "tcp": "172.18.107.16:3306",
+      "interval": "10s",
+      "timeout": "3s"
+    }
+  }
+}

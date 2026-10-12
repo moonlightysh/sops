@@ -1,0 +1,13 @@
+{
+  "service": {
+    "id": "redis-data",
+    "name": "redis",
+    "address": "172.18.107.16",
+    "port": 6379,
+    "check": {
+      "tcp": "172.18.107.16:6379",
+      "interval": "10s",
+      "timeout": "3s"
+    }
+  }
+}
