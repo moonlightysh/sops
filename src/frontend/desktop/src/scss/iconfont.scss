@@ -1,0 +1,529 @@
+@font-face {
+	font-family: "commonicon";
+	src: url("./assets/fonts/bksops-icon.svg#bksops-icon") format("svg"),
+    url("./assets/fonts/bksops-icon.ttf") format("truetype"),
+    url("./assets/fonts/bksops-icon.woff") format("woff"),
+    url("./assets/fonts/bksops-icon.eot?#iefix") format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+[class^='common-icon'],
+[class*=' common-icon'] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'commonicon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &.bk-icon {
+        font-family: 'commonicon' !important;
+    }
+}
+
+// NOTICE:
+// 插件开发页面，插件的默认icon
+// 规则与 common-icon-tag-default 相同，icon 更新后需要同步修改这里的 content
+.tag-default-icon:before {
+	content: "\e176";
+}
+
+// icons
+.common-icon-add:before {
+	content: "\e101";
+}
+.common-icon-arrow-down:before {
+	content: "\e102";
+}
+.common-icon-arrow-right:before {
+	content: "\e103";
+}
+.common-icon-ashcan-delete:before {
+	content: "\e104";
+}
+.common-icon-bk-plugin-http:before {
+	content: "\e105";
+}
+.common-icon-bk-plugin-notify:before {
+	content: "\e106";
+}
+.common-icon-black-box:before {
+	content: "\e107";
+}
+.common-icon-bk-plugin-pause:before {
+	content: "\e108";
+}
+.common-icon-bk-plugin-timer:before {
+	content: "\e10b";
+}
+.common-icon-black-figure:before {
+	content: "\e109";
+}
+.common-icon-black-hook:before {
+	content: "\e10a";
+}
+.common-icon-blueking:before {
+	content: "\e10c";
+}
+.common-icon-box:before {
+	content: "\e10d";
+}
+.common-icon-box-pen:before {
+	content: "\e10e";
+}
+.common-icon-box-top-right-corner:before {
+	content: "\e10f";
+}
+.common-icon-circulation:before {
+	content: "\e110";
+}
+.common-icon-clock:before {
+	content: "\e111";
+}
+.common-icon-clock-inversion:before {
+	content: "\e112";
+}
+.common-icon-close:before {
+	content: "\e114";
+}
+.common-icon-close-linear-circle:before {
+	content: "\e116";
+}
+.common-icon-dark-circle-avatar:before {
+	content: "\e115";
+}
+.common-icon-dark-circle-close:before {
+	content: "\e117";
+}
+.common-icon-dark-circle-ellipsis:before {
+	content: "\e118";
+}
+.common-icon-dark-circle-pause:before {
+	content: "\e11a";
+}
+.common-icon-dark-circle-question:before {
+	content: "\e11b";
+}
+.common-icon-dark-circle-shape:before {
+	content: "\e11e";
+}
+.common-icon-dark-circle-warning:before {
+	content: "\e11f";
+}
+.common-icon-dark-paper:before {
+	content: "\e120";
+}
+.common-icon-done-thin:before {
+	content: "\e121";
+}
+.common-icon-double-arrow:before {
+	content: "\e122";
+}
+.common-icon-double-paper:before {
+	content: "\e123";
+}
+.common-icon-double-vertical-line:before {
+	content: "\e124";
+}
+.common-icon-drag:before {
+	content: "\e125";
+}
+.common-icon-edit:before {
+	content: "\e126";
+}
+.common-icon-eye-hide:before {
+	content: "\e127";
+}
+.common-icon-eye-show:before {
+	content: "\e128";
+}
+.common-icon-flag-circle:before {
+	content: "\e129";
+}
+.common-icon-flash:before {
+	content: "\e12a";
+}
+.common-icon-gray-edit:before {
+	content: "\e12c";
+}
+.common-icon-hide-right:before {
+	content: "\e12d";
+}
+.common-icon-horizon-line-group:before {
+	content: "\e12e";
+}
+.common-icon-loading:before {
+	content: "\e12f";
+}
+.common-icon-lock-closed:before {
+	content: "\e130";
+}
+.common-icon-lock-disable:before {
+	content: "\e131";
+}
+.common-icon-lock-opened:before {
+	content: "\e132";
+}
+.common-icon-lock-opening:before {
+	content: "\e133";
+}
+.common-icon-marquee:before {
+	content: "\e134";
+}
+.common-icon-no-data:before {
+	content: "\e135";
+}
+.common-icon-node-branchgateway:before {
+	content: "\e136";
+}
+.common-icon-node-branchgateway-shortcut:before {
+	content: "\e137";
+}
+.common-icon-node-convergegateway:before {
+	content: "\e138";
+}
+.common-icon-node-convergegateway-shortcut:before {
+	content: "\e139";
+}
+.common-icon-node-endpoint-en:before {
+	content: "\e13a";
+}
+.common-icon-node-endpoint-zh:before {
+	content: "\e13b";
+}
+.common-icon-node-parallelgateway:before {
+	content: "\e13c";
+}
+.common-icon-node-parallelgateway-shortcut:before {
+	content: "\e13d";
+}
+.common-icon-node-startpoint-en:before {
+	content: "\e13e";
+}
+.common-icon-node-startpoint-zh:before {
+	content: "\e13f";
+}
+.common-icon-pin:before {
+	content: "\e145";
+}
+.common-icon-reduction:before {
+	content: "\e146";
+}
+.common-icon-return-arrow:before {
+	content: "\e147";
+}
+.common-icon-right-triangle:before {
+	content: "\e148";
+}
+.common-icon-search:before {
+	content: "\e149";
+}
+.common-icon-show-left:before {
+	content: "\e14a";
+}
+.common-icon-solid-eye:before {
+	content: "\e14b";
+}
+.common-icon-subflow-mark:before {
+	content: "\e14e";
+}
+.common-icon-sys-bk:before {
+	content: "\e14f";
+}
+.common-icon-sys-cmdb:before {
+	content: "\e150";
+}
+.common-icon-sys-default:before {
+	content: "\e151";
+}
+.common-icon-sys-job:before {
+	content: "\e152";
+}
+.common-icon-sys-nodeman:before {
+	content: "\e153";
+}
+.common-icon-tag-button:before {
+	content: "\e154";
+}
+.common-icon-tag-datatable:before {
+	content: "\e155";
+}
+.common-icon-tag-datetime:before {
+	content: "\e156";
+}
+.common-icon-tag-input:before {
+	content: "\e157";
+}
+.common-icon-tag-int:before {
+	content: "\e158";
+}
+.common-icon-tag-ip_selector:before {
+	content: "\e159";
+}
+.common-icon-tag-member_selector:before {
+	content: "\e15a";
+}
+.common-icon-tag-password:before {
+	content: "\e15b";
+}
+.common-icon-tag-radio:before {
+	content: "\e15c";
+}
+.common-icon-tag-select:before {
+	content: "\e15d";
+}
+.common-icon-tag-text:before {
+	content: "\e15e";
+}
+.common-icon-tag-textarea:before {
+	content: "\e15f";
+}
+.common-icon-tag-tree:before {
+	content: "\e160";
+}
+.common-icon-tag-upload:before {
+	content: "\e161";
+}
+.common-icon-tooltips:before {
+	content: "\e162";
+}
+.common-icon-zoom-in:before {
+	content: "\e163";
+}
+.common-icon-zoom-out:before {
+	content: "\e164";
+}
+.common-icon-eye-close:before {
+	content: "\e165";
+}
+.common-icon-eye-open:before {
+	content: "\e166";
+}
+.common-icon-link:before {
+	content: "\e167";
+}
+.common-icon-source-in:before {
+	content: "\e168";
+}
+.common-icon-source-out:before {
+	content: "\e169";
+}
+.common-icon-gear:before {
+	content: "\e16a";
+}
+.common-icon-info:before {
+	content: "\e16b";
+}
+.common-icon-four-square:before {
+	content: "\e16c";
+}
+.common-icon-tag-checkbox:before {
+	content: "\e16d";
+}
+.common-icon-dark-circle-checkbox:before {
+	content: "\e16e";
+}
+.common-icon-dark-circle-i:before {
+	content: "\e16f";
+}
+.common-icon-dark-circle-r:before {
+	content: "\e170";
+}
+.common-icon-dark-circle-s:before {
+	content: "\e171";
+}
+.common-icon-loading-ring:before {
+	content: "\e172";
+}
+.common-icon-next-triangle-shape:before {
+	content: "\e173";
+}
+.common-icon-prev-triangle-shape:before {
+	content: "\e174";
+}
+.common-icon-tag-cascader:before {
+	content: "\e175";
+}
+.common-icon-tag-default:before {
+	content: "\e176";
+}
+.common-icon-circle-ellipsis:before {
+	content: "\e17a";
+}
+.common-icon-double-paper-2:before {
+	content: "\e17f";
+}
+.common-icon-angle-right:before {
+	content: "\e180";
+}
+.common-icon-arrow-left:before {
+	content: "\e185";
+}
+.common-icon-clock-reload:before {
+	content: "\e186";
+}
+.common-icon-node-subflow-shortcut:before {
+	content: "\e187";
+}
+.common-icon-node-subflow:before {
+	content: "\e188";
+}
+.common-icon-node-tasknode-shortcut:before {
+	content: "\e189";
+}
+.common-icon-node-tasknode:before {
+	content: "\e18a";
+}
+.common-icon-paper:before {
+	content: "\e18b";
+}
+.common-icon-square-attribute:before {
+	content: "\e18c";
+}
+.common-icon-square-code:before {
+	content: "\e18d";
+}
+.common-icon-sys-gcloud:before {
+	content: "\e18e";
+}
+.common-icon-sys-monitor:before {
+	content: "\e18f";
+}
+.common-icon-sys-tcm:before {
+	content: "\e190";
+}
+.common-icon-bkflow-delete:before {
+	content: "\e191";
+}
+.common-icon-bkflow-setting:before {
+	content: "\e192";
+}
+.common-icon-bkflow-copy:before {
+	content: "\e193";
+}
+.common-icon-help:before {
+	content: "\e196";
+}
+.common-icon-small-map:before {
+	content: "\e197";
+}
+.common-icon-flow-data:before {
+	content: "\e19b";
+}
+.common-icon-skip:before {
+	content: "\e1a0";
+}
+.common-icon-retry:before {
+	content: "\e1a1";
+}
+.common-icon-mandatory-failure:before {
+	content: "\e1a2";
+}
+.common-icon-resume:before {
+	content: "\e1a3";
+}
+.common-icon-play:before {
+	content: "\e1a4";
+}
+.common-icon-file-setting:before {
+	content: "\e1a5";
+}
+.common-icon-branchs:before {
+	content: "\e1a6";
+}
+.common-icon-sys-wechatwork:before {
+	content: "\e1a9";
+}
+.common-icon-tiaojian:before {
+	content: "\e1ab";
+}
+.common-icon-node-conditionalparallelgateway:before {
+	content: "\e1ae";
+}
+.common-icon-loading-circle:before {
+	content: "\e1af";
+}
+.common-icon-xiangmu:before {
+	content: "\e1b0";
+}
+.common-icon-zoom-add:before {
+	content: "\e1b1";
+}
+.common-icon-zoom-minus:before {
+	content: "\e1b2";
+}
+.common-icon-hot-key:before {
+	content: "\e1b4";
+}
+.common-icon-typesetting:before {
+	content: "\e1bf";
+}
+.common-icon-reset:before {
+	content: "\e1c2";
+}
+.common-icon-checked-all:before {
+	content: "\e1c5";
+}
+.common-icon-node-selection:before {
+	content: "\e1c6";
+}
+.common-icon-thumbnail-view:before {
+	content: "\e1c9";
+}
+.common-icon-node-conditionalparallelgateway-shortcut:before {
+	content: "\e1ca";
+}
+.common-icon-task-record:before {
+	content: "\e1cb";
+}
+.common-icon-cycle-task:before {
+	content: "\e1cc";
+}
+.common-icon-sys-third-party:before {
+	content: "\e1cd";
+}
+.common-icon-clocked-task:before {
+	content: "\e1ce";
+}
+.common-icon-loading-oval:before {
+	content: "\e1cf";
+}
+.common-icon-loading-round:before {
+	content: "\e1d0";
+}
+.common-icon-render-skip:before {
+	content: "\e1d4";
+}
+.common-icon-perspective:before {
+	content: "\e1d5";
+}
+.common-icon-variable-cite:before {
+	content: "\e1d6";
+}
+.common-icon-drawable:before {
+	content: "\e1d7";
+}
+.common-icon-favorite:before {
+	content: "\e1d8";
+}
+.common-icon-update:before {
+	content: "\e1d9";
+}
+.common-icon-redo:before {
+	content: "\e1da";
+}
+.common-icon-revoke:before {
+	content: "\e1db";
+}
+.common-icon-jump-link:before {
+	content: "\e1dc";
+}
+.common-icon-task:before {
+	content: "\e1dd";
+}

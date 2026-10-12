@@ -1,8 +1,10 @@
 # bksops-lite
 
 Standalone 2-container BlueKing **Standard OPS** (bk-sops) for local macOS
-(Docker Desktop): patch overlay + reproducible build tooling, no full source
-tree. See [PATCHES.md](PATCHES.md) for what is modified and why.
+(Docker Desktop): pristine community source (`src/`, bk-sops **V3.25.12**) +
+our patch overlay (`patches/`) + reproducible build tooling. Community code
+and our changes live in separate directories, so upstream upgrades stay clean
+and reviewable. See [PATCHES.md](PATCHES.md) for what is modified and why.
 
 ## Architecture
 
@@ -27,11 +29,28 @@ Test users: `alice/alice123` (SOPS-ADMIN), `bob/bob123` (PM + VIEWER).
 
 ## Build images from this repo
 
-    ./build/build.sh                # data + sops, tags bkce-*:v7-build
-    PUSH=1 TAG=v7 ./build/build.sh  # build + push to ACR
+    ./build/build.sh                # data + sops, tags bkce-*:v8-build
+    PUSH=1 TAG=v8 ./build/build.sh  # build + push to ACR
+
+The `bkce-sops` image is assembled layer by layer:
+
+    runtime base bkce-sops:v6   (venv / system deps, from ACR)
+    + COPY src/                          → /data/app/code/   # community V3.25.12, untouched
+    + COPY patches/bkce-sops/code/       → overlaid on top   # our changes
+    + COPY patches/bkce-sops/conf/       → overlaid on top
+
+`src/` is the pristine upstream tree (`git archive` of tag `V3.25.12`) and is
+never edited directly — every change goes into `patches/`.
 
 Note: `build/data/consul` (gitignored) must exist — regenerate with
 `docker cp bkce-data:/usr/bin/consul build/data/consul` if missing.
+
+### Upgrading the community source
+
+Replace `src/` with the newer bk-sops release tree (e.g.
+`git archive <newer-tag> | tar -x -C src/`), then re-check every file under
+`patches/bkce-sops/code/` against the new tree — a patch whose upstream
+counterpart changed needs re-basing. Nothing else in the build changes.
 
 ## Plugin development
 

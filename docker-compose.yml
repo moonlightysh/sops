@@ -9,7 +9,7 @@ services:
         ipv4_address: 172.18.107.16
 
   bkce-sops:
-    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v7
+    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v8
     container_name: bkce-sops
     restart: always
     depends_on:

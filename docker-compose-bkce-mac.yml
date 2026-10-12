@@ -25,7 +25,7 @@ services:
     restart: unless-stopped
 
   sops:
-    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v7
+    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v8
     container_name: bkce-sops
     dns:
       - 172.18.107.16          # consul DNS in bkce-data (*.service.consul names)
