@@ -1,0 +1,52 @@
+# BlueKing CE standalone stack for StandardOps (标准运维) — 2 containers
+# Optimized for macOS with 16GB RAM
+# Total container memory: ~6GB (leaves ~10GB for macOS + Docker Desktop)
+#
+# Usage:
+#   1. docker login --username=moonlightysh@hotmail.com crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com
+#   2. docker compose -f docker-compose-bkce-mac.yml pull
+#   3. docker compose -f docker-compose-bkce-mac.yml up -d
+#   4. Start the mock IdP on the host:  python3 devtools/mock_iam.py   (port 5556)
+#   5. Open http://localhost:8080 in browser
+#   6. Login via mock IAM: alice / alice123 (SOPS-ADMIN), bob / bob123 (PM+VIEWER)
+
+services:
+  data:
+    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-data:v6
+    container_name: bkce-data
+    hostname: iZbp19vsfom9pxogi15pocZ.node.consul   # rabbitmq longname node identity
+    networks:
+      bkce:
+        ipv4_address: 172.18.107.16
+    deploy:
+      resources:
+        limits:
+          memory: 3g
+    restart: unless-stopped
+
+  sops:
+    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v7
+    container_name: bkce-sops
+    dns:
+      - 172.18.107.16          # consul DNS in bkce-data (*.service.consul names)
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # mock IAM on the host
+    ports:
+      - "8080:8010"            # uwsgi http, direct
+    networks:
+      bkce:
+        ipv4_address: 172.18.107.21
+    depends_on:
+      - data
+    deploy:
+      resources:
+        limits:
+          memory: 3g
+    restart: unless-stopped
+
+networks:
+  bkce:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.107.0/24
