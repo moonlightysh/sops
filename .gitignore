@@ -6,5 +6,8 @@ __pycache__/
 node_modules/
 *.tar.gz
 mock_iam_data/
+# local merge preview outputs (legacy default path of build/merge.sh)
+merged/
+.build/
 # consul binary extracted from the paas image (see build/data/Dockerfile)
 build/data/consul

@@ -3,7 +3,7 @@
 # consul moved here from the retired paas container: the binary was extracted
 # from a bkce-paas image. It is gitignored; regenerate if missing:
 #   docker cp bkce-data:/usr/bin/consul build/data/consul
-ARG REGISTRY=crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops
+ARG REGISTRY=moonlightysh
 ARG BASE_TAG=v2
 FROM ${REGISTRY}/bkce-data:${BASE_TAG}
 

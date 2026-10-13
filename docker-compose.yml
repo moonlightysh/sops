@@ -1,32 +1,56 @@
+# bksops-lite standalone stack (Standard OPS) — 2 containers, the ONLY compose file in this repo
+# Sized for macOS with 16GB RAM: ~6GB container limit leaves ~10GB for macOS + Docker Desktop
+#
+# Usage:
+#   1. docker login --username=moonlightysh docker.io
+#   2. docker compose pull
+#   3. docker compose up -d
+#   4. Start the mock IdP on the host:  python3 devtools/mock_iam.py   (port 5556)
+#   5. Open http://localhost:8080 in browser
+#   6. Login via mock IAM: alice / alice123 (SOPS-ADMIN), bob / bob123 (PM+VIEWER)
+#
+# Build new images instead of pulling:  bash build/build.sh   (then update the tags below)
+
+name: bksops-lite   # pin compose project name — matches the live stack, no -p flag needed
+
 services:
   bkce-data:
-    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-data:v6
+    image: moonlightysh/bkce-data:v6
     container_name: bkce-data
     hostname: iZbp19vsfom9pxogi15pocZ.node.consul   # rabbitmq longname node identity
     restart: always
     networks:
       sops_bkce:
         ipv4_address: 172.18.107.16
+    deploy:
+      resources:
+        limits:
+          memory: 3g
 
   bkce-sops:
-    image: crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v8
+    image: moonlightysh/bkce-sops:v8
     container_name: bkce-sops
     restart: always
     depends_on:
       - bkce-data
     ports:
-      - "8080:8010"
+      - "8080:8010"            # uwsgi http, direct
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "host.docker.internal:host-gateway"   # mock IAM on the host
     dns:
-      - 172.18.107.16
+      - 172.18.107.16          # consul DNS in bkce-data (*.service.consul names)
     networks:
       sops_bkce:
         ipv4_address: 172.18.107.21
+    deploy:
+      resources:
+        limits:
+          memory: 3g
 
 networks:
   sops_bkce:
     name: sops_bkce
+    driver: bridge
     ipam:
       config:
         - subnet: 172.18.107.0/24

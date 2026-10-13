@@ -83,7 +83,7 @@ Generate → build → deploy. Replace the base image tag with your current one.
 **Step 2 — `Dockerfile.plugins`** (next to the staging dir):
 
 ```dockerfile
-FROM crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v6
+FROM moonlightysh/bkce-sops:v6
 
 # Python backend + JS source — auto-discovered on container start
 COPY --chown=apps:apps code/pipeline_plugins/ /data/app/code/pipeline_plugins/
@@ -109,8 +109,8 @@ On container start, `ComponentFrameworkConfig.ready()` auto-discovers the plugin
 To push the result to a registry:
 
 ```bash
-docker tag bkce-sops:plugins crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v7
-docker push crpi-0oxtvczw7n94n0bz.cn-hangzhou.personal.cr.aliyuncs.com/sops/bkce-sops:v7
+docker tag bkce-sops:plugins moonlightysh/bkce-sops:v7
+docker push moonlightysh/bkce-sops:v7
 ```
 
 ## Fill in the Logic
